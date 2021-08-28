@@ -37,18 +37,16 @@ using namespace std;
 #define ll long long
 #define ld long double
 #define ull unsigned long long
-#define fbo(a) find_by_order(a) //will give a-th largest element
-#define ook(a) order_of_key(a) //will give no. of elements strictly lesser than a
-#define setbits(x)      __builtin_popcountll(x)
+
+
 #define str string
 #define fo(i,a,n) for(ll i=a;i<n;i++)
-#define eb emplace_back
-#define all(a) a.begin(),a.end()
-#define allr(a) a.rbegin(),a.rend()
+
+
 #define ff first
 #define ss second
 #define pb push_back
-#define sp(x,y)         fixed<<setprecision(y)<<x
+
 #define nl '\n'
 
 /*---------------------------------------------------------------------------------------------------------------------------*/
@@ -76,42 +74,8 @@ void FIO() {
 }
 /*---------------------------------------------------------------------------------------------------------------------------*/
 
-ll gcd(ll a, ll b) {if (b > a) {return gcd(b, a);} if (b == 0) {return a;} return gcd(b, a % b);}
-ll expo(ll a, ll b, ll mod) {ll res = 1; while (b > 0) {if (b & 1)res = (res * a) % mod; a = (a * a) % mod; b = b >> 1;} return res;}
-void extendgcd(ll a, ll b, ll*v) {if (b == 0) {v[0] = 1; v[1] = 0; v[2] = a; return ;} extendgcd(b, a % b, v); ll x = v[1]; v[1] = v[0] - v[1] * (a / b); v[0] = x; return;} //pass an arry of size1 3
-ll mminv(ll a, ll b) {ll arr[3]; extendgcd(a, b, arr); return arr[0];} //for non prime b
-ll mminvprime(ll a, ll b) {return expo(a, b - 2, b);}
 
-void swap(int &x, int &y) {int temp = x; x = y; y = temp;}
-ll combination(ll n, ll r, ll m, ll *fact, ll *ifact) {ll val1 = fact[n]; ll val2 = ifact[n - r]; ll val3 = ifact[r]; return (((val1 * val2) % m) * val3) % m;}
-void google(int t) {cout << "Case #" << t << ": ";}
 
-ll mod_add(ll a, ll b, ll m) {a = a % m; b = b % m; return (((a + b) % m) + m) % m;}
-ll mod_mul(ll a, ll b, ll m) {a = a % m; b = b % m; return (((a * b) % m) + m) % m;}
-ll mod_sub(ll a, ll b, ll m) {a = a % m; b = b % m; return (((a - b) % m) + m) % m;}
-ll mod_div(ll a, ll b, ll m) {a = a % m; b = b % m; return (mod_mul(a, mminvprime(b, m), m) + m) % m;}  //only for prime m
-
-/*--------------------------------------------------------------------------------------------------------------------------*/
-ll setbit(int n, int pos  ) { return n = n | (1 << pos) ; }
-ll resetbit(int n, int pos ) {  return n =  n & ~(1 << pos ); }
-bool checkbit(int  n, int pos ) { return (bool ) (n & (1 << pos))  ; }
-ll bitcount(ll x ) {
-	int cnt = 0;
-	fo(i, 0, 20) {
-		if (checkbit(x, i)  )
-			cnt++ ; //if ith bit is set den return ct
-	}
-	return cnt;
-}
-/*--------------------------------------------------------------------------------------------------------------------------*/
-
-//You have struggled your way here with no guidance from anyone,keep the faith
-//You have practiced a lot,have faith in yourself
-//You have practiced a hell lot of questions,have faith in yourself
-//If nothing strikes for a period of time,calm down,drink water and think again from the start
-//Dont just stare at the problem use that damn pen and paper,write down whats in ur head
-
-//AFTER THE WAR AND STRUGGLE,PEACE RESIDES,WORK HARD TODAY FOR THE BETTER TOMORROW
 
 
 //Binary search + max segment tree
